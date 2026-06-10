@@ -131,7 +131,7 @@
 
 
 
-/                           *DET Error Code*                           /
+/*                           DET Error Code                           */
 /**
 * @brief   Invalid Port Pin ID requested.
 * @details Det Error value, returned by Port_SetPinDirection and Port_PinMode
@@ -234,9 +234,9 @@ typedef enum
 /* Type definition for the Internal Resistor Configuration */
 typedef enum
 {
-    OFF = 0x00U,            /* Internal pull-up/pull-down disabled */
-    PULL_DOWN = 0x01U,      /* Internal pull-down resistor enabled */
-    PULL_UP = 0x02U         /* Internal pull-up resistor enabled */
+    PORT_PIN_RESISTOR_OFF = 0x00U,            /* Internal pull-up/pull-down disabled */
+    PULL_DOWN             = 0x01U,            /* Internal pull-down resistor enabled */
+    PULL_UP               = 0x02U             /* Internal pull-up resistor enabled */
 } Port_InternalResistorType;
 
 /* Type definition for the Initial Pin Level */
