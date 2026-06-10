@@ -2,11 +2,14 @@
 CC_ARM = arm-none-eabi-gcc
 CC_NATIVE = gcc
 
-# Target Compiler Flags (For S32K144)
-CFLAGS_ARM = -mcpu=cortex-m4 -mthumb -O0 -Werror -I./mcu/mcal/Port -I./mcu/mcal/
+# Define the path to your common headers
+INC_PATH = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes
 
-# Host Compiler Flags (Injects UNIT_TESTING macro for CMock/Unity)
-CFLAGS_NATIVE = -g -O0 -Werror -DUNIT_TESTING -I./src -I./test/stubs -I./tools/Unity/src
+# Target Compiler Flags
+CFLAGS_ARM = -mcpu=cortex-m4 -mthumb -O0 -Werror $(INC_PATH)
+
+# Host Compiler Flags
+CFLAGS_NATIVE = -g -O0 -Werror -DUNIT_TESTING $(INC_PATH) -I./tools/Unity/src
 
 # --- Stage 1: Cross-Compile for Hardware ---
 build_target:
