@@ -17,6 +17,7 @@ pipeline {
         stage('2. Cross-Compile (S32K144)') {
             steps {
                 echo 'Building S32K144 target...'
+                bat 'dir /s'
                 bat 'make build_target'
             }
         }
