@@ -11,7 +11,7 @@ CFLAGS_NATIVE = -g -O0 -Werror -DUNIT_TESTING -I./src -I./test/stubs -I./tools/U
 # --- Stage 1: Cross-Compile for Hardware ---
 build_target:
 	@if not exist build mkdir build
-$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/Port/Port.c -o build/Port.o
+	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/Port/Port.c -o build/Port.o
 	$(CC_ARM) $(CFLAGS_ARM) -Wl,-Map=build/BMS_Project.map build/Port.o -o build/BMS_Project.elf
 
 # --- Stage 2: Native Compile for Tests ---
@@ -22,7 +22,3 @@ test_host:
 
 clean:
 	@if exist build rmdir /s /q build
-
-
-
-	
