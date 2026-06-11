@@ -57,8 +57,7 @@ void test_Port_SetPinDirection_Uninit(void) {
 
 void test_Port_SetPinDirection_InvalidPin(void) {
     /* Initialize with actual allocated memory, not 0x1234 */
-    Port_Init(DummyValidConfig); 
-    
+    Port_Init(&DummyValidConfig);    
     Port_SetPinDirection(99, PORT_PIN_IN); /* 99 is above configured pins */
     TEST_ASSERT_EQUAL(PORT_E_PARAM_PIN, LastReportedError);
 }
