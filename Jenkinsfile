@@ -38,6 +38,11 @@ pipeline {
             steps {
                 echo 'Running native unit tests...'
                 // bat 'make test_host' 
+                bat 'build\\test_runner.exe'
+            }
+            post {
+             always {
+                junit 'test-results.xml' 
             }
         }
 
