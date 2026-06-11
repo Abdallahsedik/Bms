@@ -57,11 +57,11 @@ extern uint32_t  PCC_Fake[128]; /* Simple array for clock gating registers */
 
 
 /* Dummy PCC Addresses */
-#define PCC_PORTA_ADDR ((volatile uint32_t *)&PCC_Fake[0])
-#define PCC_PORTB_ADDR ((volatile uint32_t *)&PCC_Fake[1])
-#define PCC_PORTC_ADDR ((volatile uint32_t *)&PCC_Fake[2])
-#define PCC_PORTD_ADDR ((volatile uint32_t *)&PCC_Fake[3])
-#define PCC_PORTE_ADDR ((volatile uint32_t *)&PCC_Fake[4])
+#define PCC_PORTA_ADDR ((volatile uint32 *)&PCC_Fake[0])
+#define PCC_PORTB_ADDR ((volatile uint32 *)&PCC_Fake[1])
+#define PCC_PORTC_ADDR ((volatile uint32 *)&PCC_Fake[2])
+#define PCC_PORTD_ADDR ((volatile uint32 *)&PCC_Fake[3])
+#define PCC_PORTE_ADDR ((volatile uint32 *)&PCC_Fake[4])
 
 /* Bit Masks for S32K144 */
 #define PCC_CGC_MASK        (0x40000000U)
