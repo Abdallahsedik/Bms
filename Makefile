@@ -17,11 +17,11 @@ build_target:
 	@if not exist build mkdir build
 	@echo "Compiling..."
 	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/Port/Port.c -o build/Port.o
-	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/includes/Det.c -o build/Det.o
+	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/Det/Det.c -o build/Det.o
 	@echo "Archiving to library..."
 	$(AR_ARM) rcs build/BMS_Library.a build/Port.o build/Det.o
 	@echo "Build Complete: BMS_Library.a"
-	
+
 # --- Stage 2: Native Compile for Tests ---
 test_host:
 	@if not exist build mkdir build
