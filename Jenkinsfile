@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Running Cppcheck...'
                 // Redirecting stdout (>) to the xml file
-                bat 'cppcheck --enable=all --suppress=missingInclude --xml --xml-version=2 mcu/ > cppcheck-result.xml 2> NUL || exit 0'
+                bat 'cppcheck --enable=all --suppress=missingInclude --xml --xml-version=2 mcu/ 2> cppcheck-result.xml || exit 0'
             }
             post {
                 always {
@@ -39,12 +39,7 @@ pipeline {
                 echo 'Building and running unit tests...'
                 bat 'make test_host'
             }
-            post {
-                always {
-                    // Only try to publish if the file exists
-                    junit allowEmptyResults: true, testResults: 'test-results.xml'
-                }
-            }
+            
         }
 
         stage('5. Archive Traceability Artifacts') {
