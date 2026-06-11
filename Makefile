@@ -25,15 +25,7 @@ build_target:
 # --- Stage 2: Native Compile for Tests ---
 test_host:
 	@if not exist build mkdir build
-	$(CC_NATIVE) $(CFLAGS_NATIVE) -DUNIT_TEST \
+	gcc -g -O0 -Werror -DUNIT_TESTING -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes -I./tools/Unity/src -DUNIT_TEST mcu/mcal/Port/Port.c mcu/mcal/Det/Det.c test/stubs/S32K144_Registers.c test/unit/test_Port.c tools/Unity/src/unity.c -o build/test_runner.exe
 	build\test_runner.exe > test-results.xml
-	mcu/mcal/Port/Port.c \
-	mcu/mcal/Det/Det.c \
-	test/stubs/S32K144_Registers.c \
-	test/stubs/Det_Mock.c \
-	test/unit/test_Port.c \
-	tools/Unity/src/unity.c \
-	-o build/test_runner.exe
-	build\test_runner.exe
 clean:
 	@if exist build rmdir /s /q build
