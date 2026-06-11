@@ -217,11 +217,11 @@
 *                       LOCAL TYPEDEFS (STRUCTURES, UNIONS, ENUMS)
 =================================================================================================*/
 
-/* Type definition for the numerical ID of a Port Pin (0 to 88 for your configuration) */
-typedef uint16 Port_PinType;
+// /* Type definition for the numerical ID of a Port Pin (0 to 88 for your configuration) */
+// typedef uint16 Port_PinType;
 
-/* Type definition for the Port Pin Mode (Alternate Functions: ALT0 to ALT7 on S32K1xx) */
-typedef uint8 Port_PinModeType;
+// /* Type definition for the Port Pin Mode (Alternate Functions: ALT0 to ALT7 on S32K1xx) */
+// typedef uint8 Port_PinModeType;
 
 // /* Type definition for the Port Pin Direction */
 // typedef enum
@@ -239,25 +239,25 @@ typedef uint8 Port_PinModeType;
 // } Port_InternalResistorType;
 
 /* Type definition for the Initial Pin Level */
-typedef enum
-{
-    PORT_PIN_LEVEL_LOW = 0x00U,
-    PORT_PIN_LEVEL_HIGH = 0x01U
-} Port_PinLevelType;
+// typedef enum
+// {
+//     PORT_PIN_LEVEL_LOW = 0x00U,
+//     PORT_PIN_LEVEL_HIGH = 0x01U
+// } Port_PinLevelType;
 
 
 /* Main Configuration Structure for a single PORT pin */
-typedef struct
-{
-    uint8 Port_Id;                               /* 1. Port ID (e.g., PORT_PORTA_ID) */
-    Port_PinType Pin_Id;                         /* 2. Pin ID (e.g., PORT_PIN0_ID) */
-    Port_PinDirectionType Pin_Direction;         /* 3. Initial Direction (IN/OUT) */
-    Port_InternalResistorType Pin_Resistor;      /* 4. Internal pull resistor (OFF/PULL_UP/PULL_DOWN) */
-    Port_PinModeType Pin_InitialMode;            /* 5. Alternate function mode */
-    uint8 Pin_DirectionChangeable;               /* 6. STD_ON (Changeable) / STD_OFF (Unchangeable) */
-    uint8 Pin_ModeChangeable;                    /* 7. STD_ON (Changeable) / STD_OFF (Unchangeable) */
-    Port_PinLevelType Pin_InitialLevel;          /* 8. Initial Level (LOW/HIGH) */
-} Port_ConfigType;
+// typedef struct
+// {
+//     uint8 Port_Id;                               /* 1. Port ID (e.g., PORT_PORTA_ID) */
+//     Port_PinType Pin_Id;                         /* 2. Pin ID (e.g., PORT_PIN0_ID) */
+//     Port_PinDirectionType Pin_Direction;         /* 3. Initial Direction (IN/OUT) */
+//     Port_InternalResistorType Pin_Resistor;      /* 4. Internal pull resistor (OFF/PULL_UP/PULL_DOWN) */
+//     Port_PinModeType Pin_InitialMode;            /* 5. Alternate function mode */
+//     uint8 Pin_DirectionChangeable;               /* 6. STD_ON (Changeable) / STD_OFF (Unchangeable) */
+//     uint8 Pin_ModeChangeable;                    /* 7. STD_ON (Changeable) / STD_OFF (Unchangeable) */
+//     Port_PinLevelType Pin_InitialLevel;          /* 8. Initial Level (LOW/HIGH) */
+// } Port_ConfigType;
 
 
 /*=================================================================================================
