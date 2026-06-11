@@ -47,4 +47,26 @@ extern uint32_t  PCC_Fake[128]; /* Simple array for clock gating registers */
 
 #define PCC_BASE_ADDRESS ((uint32_t)&PCC_Fake[0])
 
+
+/* --- Missing Macros for Port.c Compilation --- */
+#define PORT_A (&PORTA_Fake)
+#define PORT_B (&PORTB_Fake)
+#define PORT_C (&PORTC_Fake)
+#define PORT_D (&PORTD_Fake)
+#define PORT_E (&PORTE_Fake)
+
+/* Dummy PCC Addresses  */
+#define PCC_PORTA_ADDR (&PCC_Fake[0])
+#define PCC_PORTB_ADDR (&PCC_Fake[1])
+#define PCC_PORTC_ADDR (&PCC_Fake[2])
+#define PCC_PORTD_ADDR (&PCC_Fake[3])
+#define PCC_PORTE_ADDR (&PCC_Fake[4])
+
+/* Bit Masks for S32K144 */
+#define PCC_CGC_MASK        (0x40000000U)
+#define PORT_PCR_PE_MASK    (0x00000002U)
+#define PORT_PCR_PS_MASK    (0x00000001U)
+#define PORT_PCR_MUX_MASK   (0x00000700U)
+#define PORT_PCR_MUX(x)     (((uint32_t)(((uint32_t)(x)) << 8)) & PORT_PCR_MUX_MASK)
+
 #endif /* S32K144_REGISTERS_H_ */
