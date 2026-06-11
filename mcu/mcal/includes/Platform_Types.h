@@ -10,7 +10,7 @@ It contains all platform dependent types and symbols. Those types must be abstra
 /*************************************************************************************************************************************
 Project : AUTOSAR 4.4.0 MCAL
 Platform  : ARM
-Peripheral : STM32F407
+Peripheral : S32K1XX
 Autosar Version : 4.4.0
 Autosar Revision : ASR_REL_4_0_REV_0000
 Sw Version : 1.0.0
