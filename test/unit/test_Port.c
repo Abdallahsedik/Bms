@@ -7,6 +7,26 @@
 // External variables from Det_Mock.c
 extern uint8 LastReportedError;
 
+
+static const Port_PinConfigType DummyPins[1] = {
+    {
+        .Port_Id = 0, /* Assuming 0 is PORTA */
+        .Pin_Id = 0,
+        .Pin_Direction = PORT_PIN_OUT,
+        .Pin_InitialMode = 1, /* MUX = 1 (ALT1). 1 shifted by 8 bits = 256 */
+        .Pin_InitialLevel = PORT_PIN_LEVEL_LOW,
+        .Pin_Resistor = 0, /* PULL_OFF */
+        .Pin_DirectionChangeable = STD_ON,
+        .Pin_ModeChangeable = STD_ON
+    }
+};
+
+static const Port_ConfigType DummyValidConfig = {
+    .Pins = DummyPins,
+    .NumPins = 1
+};
+
+
 void setUp(void) {
     // Reset registers to 0 before every test to ensure isolation
     memset(&PORTA_Fake, 0, sizeof(PORTA_Fake));
@@ -65,11 +85,16 @@ void tearDown(void) {
 int main(void) {
     UNITY_BEGIN();
     
+    /* 1. Run all UNINIT tests FIRST */
     RUN_TEST(test_Port_Init_NullPtr);
-    RUN_TEST(test_Port_Init_ValidConfig);
     RUN_TEST(test_Port_SetPinDirection_Uninit);
-    RUN_TEST(test_Port_SetPinDirection_InvalidPin);
     RUN_TEST(test_Port_GetVersionInfo_NullPtr);
+    
+    /* 2. Run the INIT test (This permanently sets Port_Status = PORT_INITIALIZED) */
+    RUN_TEST(test_Port_Init_ValidConfig);
+    
+    /* 3. Run tests that require the module to be initialized */
+    RUN_TEST(test_Port_SetPinDirection_InvalidPin);
     
     return UNITY_END();
 }
