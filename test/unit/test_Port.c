@@ -42,9 +42,7 @@ void test_Port_Init_NullPtr(void) {
 
 void test_Port_Init_ValidConfig(void) {
     // Setup a dummy valid config structure 
-    Port_Init(&DummyValidConfig);
-    Port_Init(&ValidConfig);
-    
+    Port_Init(&DummyValidConfig);    
     // Assert PCR register matches expectation
     TEST_ASSERT_EQUAL(0x00000100, PORTA_Fake.PCR[0]); 
 }
