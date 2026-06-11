@@ -25,7 +25,7 @@ pipeline {
         stage('3. Static Analysis (MISRA-C)') {
             steps {
                 echo 'Running Cppcheck...'
-                bat 'cppcheck --enable=all --addon=misra.json --xml --xml-version=2 src/ 2> cppcheck-result.xml'
+                bat 'cppcheck --enable=all --addon=misra.json --xml --xml-version=2 mcu/ 2> cppcheck-result.xml'
             }
             post {
                 always {
