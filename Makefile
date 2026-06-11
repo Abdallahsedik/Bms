@@ -29,7 +29,9 @@ test_host:
 	mcu/mcal/Port/Port.c \
 	mcu/mcal/Det/Det.c \
 	test/stubs/S32K144_Registers.c \
+	test/stubs/Det_Mock.c \
 	test/unit/test_Port.c \
+	tools/Unity/src/unity.c \
 	-o build/test_runner.exe
 	build\test_runner.exe
 clean:
