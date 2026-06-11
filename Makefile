@@ -4,8 +4,9 @@ AR_ARM = arm-none-eabi-ar
 CC_NATIVE = gcc
 
 # Paths - Added -I./mcu/mcal/includes to INC_TEST
-INC_PROD = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes
 INC_TEST = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes -I./test/stubs -I./tools/Unity/src
+
+INC_PROD = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes
 # Clean Target
 clean:
 	@if exist build rmdir /s /q build

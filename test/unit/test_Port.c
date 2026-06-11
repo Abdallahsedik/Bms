@@ -36,11 +36,19 @@ void test_Port_SetPinDirection_Uninit(void) {
     TEST_ASSERT_EQUAL(PORT_E_UNINIT, LastReportedError);
 }
 
+/* Create a globally accessible valid dummy config for testing */
+static Port_ConfigType DummyValidConfig[1] = {
+    { /* Populate this with whatever 1 valid pin configuration looks like for your struct */ }
+};
+
 void test_Port_SetPinDirection_InvalidPin(void) {
-    Port_Init((Port_ConfigType*)0x1234); // Pretend init
-    Port_SetPinDirection(99, PORT_PIN_IN); // 99 is invalid
+    /* Initialize with actual allocated memory, not 0x1234 */
+    Port_Init(DummyValidConfig); 
+    
+    Port_SetPinDirection(99, PORT_PIN_IN); /* 99 is above configured pins */
     TEST_ASSERT_EQUAL(PORT_E_PARAM_PIN, LastReportedError);
 }
+
 
 // --- Port_GetVersionInfo Tests ---
 

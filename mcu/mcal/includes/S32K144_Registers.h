@@ -8,18 +8,9 @@
 
 
 
-#ifdef UNIT_TESTING
-    /* redirect base addresses to external RAM buffers during testing */
-    extern uint32 Mock_PORTA_Base[];
-    extern uint32 Mock_PCC_Base[];
-    
-    #define PORTA_BASE_ADDRESS      ((uint32)Mock_PORTA_Base)
-    #define PCC_BASE_ADDRESS        ((uint32)Mock_PCC_Base)
-#else
-    /*  absolute hardware addresses for the physical target */
+
     #define PORTA_BASE_ADDRESS      (0x40049000U)
     #define PCC_BASE_ADDRESS        (0x40065000U)
-#endif
 /*=================================================================================================
 * SOURCE FILE VERSION INFORMATION
 =================================================================================================*/

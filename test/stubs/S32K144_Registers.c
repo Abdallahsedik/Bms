@@ -1,7 +1,6 @@
 #include "S32K144_Registers.h"
 
-PORT_Type PORTA_Fake;
-PORT_Type PORTB_Fake;
-PORT_Type PORTC_Fake;
-PORT_Type PORTD_Fake;
-PORT_Type PORTE_Fake;
+/* Actual memory allocation for the host PC */
+PORT_Type PORTA_Fake, PORTB_Fake, PORTC_Fake, PORTD_Fake, PORTE_Fake;
+GPIO_Type PTA_Fake, PTB_Fake, PTC_Fake, PTD_Fake, PTE_Fake;
+uint32_t  PCC_Fake[128];
