@@ -22,5 +22,12 @@ build_target:
 # Test Target
 test_host:
 	@if not exist build mkdir build
-	$(CC_NATIVE) -g -O0 -Werror -DUNIT_TESTING $(INC_TEST) -DUNIT_TEST mcu/mcal/Port/Port.c mcu/mcal/Det/Det.c test/stubs/S32K144_Registers.c test/unit/test_Port.c tools/Unity/src/unity.c -o build/test_runner.exe
-	build\test_runner.exe > test-results.xml
+	$(CC_NATIVE) -g -O0 -Werror -DUNIT_TESTING $(INC_TEST) -DUNIT_TEST \
+	mcu/mcal/Port/Port.c \
+	mcu/mcal/Det/Det.c \
+	test/stubs/S32K144_Registers.c \
+	test/stubs/Det_Mock.c \
+	test/unit/test_Port.c \
+	tools/Unity/src/unity.c \
+	-o build/test_runner.exe
+	build\test_runner.exe

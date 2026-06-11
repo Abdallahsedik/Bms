@@ -57,3 +57,19 @@ void test_Port_GetVersionInfo_NullPtr(void) {
     Port_GetVersionInfo(NULL);
     TEST_ASSERT_EQUAL(PORT_E_PARAM_POINTER, LastReportedError);
 }
+
+void tearDown(void) {
+}
+
+/* The main function to execute the Unity tests */
+int main(void) {
+    UNITY_BEGIN();
+    
+    RUN_TEST(test_Port_Init_NullPtr);
+    RUN_TEST(test_Port_Init_ValidConfig);
+    RUN_TEST(test_Port_SetPinDirection_Uninit);
+    RUN_TEST(test_Port_SetPinDirection_InvalidPin);
+    RUN_TEST(test_Port_GetVersionInfo_NullPtr);
+    
+    return UNITY_END();
+}
