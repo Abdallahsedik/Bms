@@ -25,8 +25,7 @@ pipeline {
         stage('3. Static Analysis (MISRA-C)') {
             steps {
                 echo 'Running Cppcheck...'
-                bat 'cppcheck --enable=all --addon=misra.json --xml --xml-version=2 mcu/ 2> cppcheck-result.xml'
-            }
+                bat 'cppcheck --enable=all --xml --xml-version=2 mcu/ 2> cppcheck-result.xml'            }
             post {
                 always {
                     recordIssues tool: cppCheck(pattern: 'cppcheck-result.xml'), qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
