@@ -25,8 +25,12 @@ build_target:
 # --- Stage 2: Native Compile for Tests ---
 test_host:
 	@if not exist build mkdir build
-	$(CC_NATIVE) $(CFLAGS_NATIVE) tools/Unity/src/unity.c test/stubs/S32K144_Stubs.c src/Port.c test/test_Port.c -o build/test_runner.exe
+	$(CC_NATIVE) $(CFLAGS_NATIVE) -DUNIT_TEST \
+	mcu/mcal/Port/Port.c \
+	mcu/mcal/Det/Det.c \
+	test/stubs/S32K144_Registers.c \
+	test/unit/test_Port.c \
+	-o build/test_runner.exe
 	build\test_runner.exe
-
 clean:
 	@if exist build rmdir /s /q build

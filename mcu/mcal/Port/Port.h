@@ -36,6 +36,12 @@
 #include "Port_Cfg.h"
 
 
+#ifdef UNIT_TEST
+    #include "../../../test/stubs/S32K144_Registers.h"
+#else
+    #include "S32K144_Registers.h" /*  real hardware header */
+#endif
+
 /*=================================================================================================
 *                              SOURCE FILE VERSION INFORMATION
 =================================================================================================*/
