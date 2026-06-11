@@ -3,9 +3,9 @@ CC_ARM = arm-none-eabi-gcc
 AR_ARM = arm-none-eabi-ar
 CC_NATIVE = gcc
 
-# Paths - Added -I./mcu/mcal/includes to INC_TEST
-INC_TEST = -I./test/stubs -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes -I./tools/Unity/src
-INC_PROD = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes
+INC_TEST = -I./test/stubs -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes -I./mcu/mcal/Adc -I./tools/Unity/src
+INC_PROD = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes -I./mcu/mcal/Adc
+
 # Clean Target
 clean:
 	@if exist build rmdir /s /q build
@@ -16,7 +16,9 @@ build_target:
 	@echo "Compiling..."
 	$(CC_ARM) -mcpu=cortex-m4 -mthumb -O0 -Werror $(INC_PROD) -c mcu/mcal/Port/Port.c -o build/Port.o
 	$(CC_ARM) -mcpu=cortex-m4 -mthumb -O0 -Werror $(INC_PROD) -c mcu/mcal/Det/Det.c -o build/Det.o
-	$(AR_ARM) rcs build/BMS_Library.a build/Port.o build/Det.o
+	$(CC_ARM) -mcpu=cortex-m4 -mthumb -O0 -Werror $(INC_PROD) -c mcu/mcal/Adc/Adc_PBcfg.c -o build/Adc_PBcfg.o
+	
+	$(AR_ARM) rcs build/BMS_Library.a build/Port.o build/Det.o build/Adc_PBcfg.o
 	@echo "Build Complete: BMS_Library.a"
 
 # Test Target
