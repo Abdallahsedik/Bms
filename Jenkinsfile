@@ -24,6 +24,7 @@ pipeline {
         stage('3. Static Analysis (MISRA-C)') {
             steps {
                 echo 'Running Cppcheck...'
+                bat 'type nul > cppcheck-result.xml'
                 bat 'cppcheck --enable=all --xml --xml-version=2 mcu/ 2> cppcheck-result.xml || exit 0'
             }
             post {
@@ -36,6 +37,7 @@ pipeline {
         stage('4. Native Unit Tests (Host)') {
             steps {
                 echo 'Running native unit tests...'
+                bat 'make test_host'
                 bat 'build\\test_runner.exe || exit 0' 
             }
             post {

@@ -26,6 +26,7 @@ build_target:
 test_host:
 	@if not exist build mkdir build
 	$(CC_NATIVE) $(CFLAGS_NATIVE) -DUNIT_TEST \
+	build\test_runner.exe > test-results.xml
 	mcu/mcal/Port/Port.c \
 	mcu/mcal/Det/Det.c \
 	test/stubs/S32K144_Registers.c \
