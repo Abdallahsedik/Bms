@@ -42,8 +42,7 @@ void test_Port_Init_NullPtr(void) {
 
 void test_Port_Init_ValidConfig(void) {
     // Setup a dummy valid config structure 
-    Port_ConfigType ValidConfig = { /* fill with valid dummy data */ };
-    
+    Port_Init(&DummyValidConfig);
     Port_Init(&ValidConfig);
     
     // Assert PCR register matches expectation
@@ -57,10 +56,6 @@ void test_Port_SetPinDirection_Uninit(void) {
     TEST_ASSERT_EQUAL(PORT_E_UNINIT, LastReportedError);
 }
 
-/* Create a globally accessible valid dummy config for testing */
-static Port_ConfigType DummyValidConfig[1] = {
-    { /* Populate this with whatever 1 valid pin configuration looks like for your struct */ }
-};
 
 void test_Port_SetPinDirection_InvalidPin(void) {
     /* Initialize with actual allocated memory, not 0x1234 */
