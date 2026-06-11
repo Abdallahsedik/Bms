@@ -44,8 +44,8 @@ pipeline {
 
         stage('5. Archive Traceability Artifacts') {
             steps {
-                echo 'Archiving .elf and .map files...'
-                archiveArtifacts artifacts: 'build/*.elf, build/*.map', fingerprint: true
+                echo 'Archiving library...'
+                archiveArtifacts artifacts: 'build/*.a', fingerprint: true
             }
         }
     }

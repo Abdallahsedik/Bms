@@ -1,8 +1,9 @@
 # Toolchains
 CC_ARM = arm-none-eabi-gcc
+AR_ARM = arm-none-eabi-ar 
 CC_NATIVE = gcc
 
-# Define the path to your common headers
+# path to common headers
 INC_PATH = -I./mcu/mcal/Port -I./mcu/mcal/ -I./mcu/mcal/includes
 
 # Target Compiler Flags
@@ -14,9 +15,13 @@ CFLAGS_NATIVE = -g -O0 -Werror -DUNIT_TESTING $(INC_PATH) -I./tools/Unity/src
 # --- Stage 1: Cross-Compile for Hardware ---
 build_target:
 	@if not exist build mkdir build
+	@echo "Compiling..."
 	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/Port/Port.c -o build/Port.o
-	$(CC_ARM) $(CFLAGS_ARM) -Wl,-Map=build/BMS_Project.map build/Port.o -o build/BMS_Project.elf
-
+	$(CC_ARM) $(CFLAGS_ARM) -c mcu/mcal/includes/Det.c -o build/Det.o
+	@echo "Archiving to library..."
+	$(AR_ARM) rcs build/BMS_Library.a build/Port.o build/Det.o
+	@echo "Build Complete: BMS_Library.a"
+	
 # --- Stage 2: Native Compile for Tests ---
 test_host:
 	@if not exist build mkdir build
