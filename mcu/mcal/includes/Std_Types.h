@@ -40,10 +40,11 @@ Sw Version : 1.0.0
 * @brief Parameters that shall be published within the standard types header file and also in the
 *        module's description file
 */
-#define STD_VENDOR_ID                     43
-#define STD_AR_RELEASE_MAJOR_VERSION      4
-#define STD_AR_RELEASE_MINOR_VERSION      4
-#define STD_AR_RELEASE_REVISION_VERSION   0
+#define STD_VENDOR_ID                        43
+#define STD_TYPES_AR_RELEASE_MAJOR_VERSION   4
+#define STD_TYPES_AR_RELEASE_MINOR_VERSION   4
+#define STD_TYPES_AR_RELEASE_PATCH_VERSION   0
+
 
 #define STD_SW_MAJOR_VERSION              1
 #define STD_SW_MINOR_VERSION              0

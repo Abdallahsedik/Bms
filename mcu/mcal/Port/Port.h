@@ -34,7 +34,6 @@
 #include "Std_Types.h"
 /*Including PORT Pre-Compile Header Filer*/
 #include "Port_Cfg.h"
-// #include "Mcal.h"
 
 
 /*=================================================================================================
@@ -224,20 +223,20 @@ typedef uint16 Port_PinType;
 /* Type definition for the Port Pin Mode (Alternate Functions: ALT0 to ALT7 on S32K1xx) */
 typedef uint8 Port_PinModeType;
 
-/* Type definition for the Port Pin Direction */
-typedef enum
-{
-    PORT_PIN_IN = 0x00U,    /* Sets port pin as input */
-    PORT_PIN_OUT = 0x01U    /* Sets port pin as output */
-} Port_PinDirectionType;
+// /* Type definition for the Port Pin Direction */
+// typedef enum
+// {
+//     PORT_PIN_IN = 0x00U,    /* Sets port pin as input */
+//     PORT_PIN_OUT = 0x01U    /* Sets port pin as output */
+// } Port_PinDirectionType;
 
 /* Type definition for the Internal Resistor Configuration */
-typedef enum
-{
-    PORT_PIN_RESISTOR_OFF = 0x00U,            /* Internal pull-up/pull-down disabled */
-    PULL_DOWN             = 0x01U,            /* Internal pull-down resistor enabled */
-    PULL_UP               = 0x02U             /* Internal pull-up resistor enabled */
-} Port_InternalResistorType;
+// typedef enum
+// {
+//     PORT_PIN_RESISTOR_OFF = 0x00U,            /* Internal pull-up/pull-down disabled */
+//     PULL_DOWN             = 0x01U,            /* Internal pull-down resistor enabled */
+//     PULL_UP               = 0x02U             /* Internal pull-up resistor enabled */
+// } Port_InternalResistorType;
 
 /* Type definition for the Initial Pin Level */
 typedef enum
