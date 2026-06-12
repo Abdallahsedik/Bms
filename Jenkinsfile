@@ -24,24 +24,24 @@ pipeline {
         stage('3. Static Analysis (MISRA-C)') {
             steps {
                 echo 'Running Cppcheck...'
-                // Redirecting stdout (>) to the xml file
-                bat 'cppcheck --enable=all --suppress=missingInclude --xml --xml-version=2 mcu/ 2> cppcheck-result.xml || exit 0'
+                bat 'chcp 65001 > NUL & cppcheck --enable=all --suppress=missingInclude --xml --xml-version=2 mcu/ 2> cppcheck-result.xml & exit 0'
             }
             post {
                 always {
-                    recordIssues tool: cppCheck(pattern: 'cppcheck-result.xml'), qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                    recordIssues tool: cppCheck(pattern: 'cppcheck-result.xml'),
+                                 qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
                 }
             }
         }
 
-       stage('4. Native Unit Tests (Host)') {
-         steps {
-             echo 'Building and running unit tests...'
-             bat 'make test_host'
+        stage('4. Native Unit Tests (Host)') {
+            steps {
+                echo 'Building and running unit tests...'
+                bat 'make test_host'
             }
-         post {
-             always {
-                 junit allowEmptyResults: true, testResults: 'test-results.xml'
+            post {
+                always {
+                    junit allowEmptyResults: true, testResults: 'test-results.xml'
                 }
             }
         }
