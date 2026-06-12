@@ -25,16 +25,15 @@
 #define PCC_CGC_MASK                 (0x40000000U)  /* Bit 30: Clock Gate Control */
 
 /* PORT clock address constants — used in Port.c lookup table */
-#define PCC_PORTA_ADDR               (PCC_BASE_ADDRESS + 0x124U)
-#define PCC_PORTB_ADDR               (PCC_BASE_ADDRESS + 0x128U)
-#define PCC_PORTC_ADDR               (PCC_BASE_ADDRESS + 0x12CU)
-#define PCC_PORTD_ADDR               (PCC_BASE_ADDRESS + 0x130U)
-#define PCC_PORTE_ADDR               (PCC_BASE_ADDRESS + 0x134U)
+#define PCC_PORTA_ADDR    ((volatile uint32*)(PCC_BASE_ADDRESS + 0x124U))
+#define PCC_PORTB_ADDR    ((volatile uint32*)(PCC_BASE_ADDRESS + 0x128U))
+#define PCC_PORTC_ADDR    ((volatile uint32*)(PCC_BASE_ADDRESS + 0x12CU))
+#define PCC_PORTD_ADDR    ((volatile uint32*)(PCC_BASE_ADDRESS + 0x130U))
+#define PCC_PORTE_ADDR    ((volatile uint32*)(PCC_BASE_ADDRESS + 0x134U))
 
 /* ADC clock address constants — used in Adc.c lookup table */
-#define PCC_ADC0_ADDR                (PCC_BASE_ADDRESS + 0x198U)
-#define PCC_ADC1_ADDR                (PCC_BASE_ADDRESS + 0x19CU)
-
+#define PCC_ADC0_ADDR     ((volatile uint32*)(PCC_BASE_ADDRESS + 0x198U))
+#define PCC_ADC1_ADDR     ((volatile uint32*)(PCC_BASE_ADDRESS + 0x19CU))
 
 /*=================================================================================================
 * PORT REGISTERS  (Pin Mux and Configuration)

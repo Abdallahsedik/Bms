@@ -72,7 +72,7 @@ typedef struct
     volatile uint32 PSOR;
     volatile uint32 PCOR;
     volatile uint32 PTOR;
-    volatile uint32 PDIR;  /* Not const in stub — allows test to set simulated input values */
+    volatile uint32 PDIR;  
     volatile uint32 PDDR;
     volatile uint32 PIDR;
 } GPIO_Type;
@@ -105,15 +105,15 @@ extern uint32 PCC_ADC1_Fake;
 #define PCC_CGC_MASK                 (0x40000000U)
 
 /* PORT PCC address constants — point to fake variables */
-#define PCC_PORTA_ADDR               ((uint32)(&PCC_PORTA_Fake))
-#define PCC_PORTB_ADDR               ((uint32)(&PCC_PORTB_Fake))
-#define PCC_PORTC_ADDR               ((uint32)(&PCC_PORTC_Fake))
-#define PCC_PORTD_ADDR               ((uint32)(&PCC_PORTD_Fake))
-#define PCC_PORTE_ADDR               ((uint32)(&PCC_PORTE_Fake))
+#define PCC_PORTA_ADDR    ((volatile uint32*)(&PCC_PORTA_Fake))
+#define PCC_PORTB_ADDR    ((volatile uint32*)(&PCC_PORTB_Fake))
+#define PCC_PORTC_ADDR    ((volatile uint32*)(&PCC_PORTC_Fake))
+#define PCC_PORTD_ADDR    ((volatile uint32*)(&PCC_PORTD_Fake))
+#define PCC_PORTE_ADDR    ((volatile uint32*)(&PCC_PORTE_Fake))
 
 /* ADC PCC address constants */
-#define PCC_ADC0_ADDR                ((uint32)(&PCC_ADC0_Fake))
-#define PCC_ADC1_ADDR                ((uint32)(&PCC_ADC1_Fake))
+#define PCC_ADC0_ADDR     ((volatile uint32*)(&PCC_ADC0_Fake))
+#define PCC_ADC1_ADDR     ((volatile uint32*)(&PCC_ADC1_Fake))
 
 /*=================================================================================================
 * ADC FAKE REGISTERS

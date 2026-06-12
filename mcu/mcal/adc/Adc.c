@@ -79,11 +79,11 @@ static ADC_Type* const Adc_HwUnitBase[ADC_MAX_HW_UNITS] =
     ADC1    /* Index 1: ADC1 — Temperature group  */
 };
 
-static const uint32 Adc_PccAddresses[ADC_MAX_HW_UNITS] =
-{
-    PCC_ADC0_ADDR,  /* PCC register address for ADC0 */
-    PCC_ADC1_ADDR   /* PCC register address for ADC1 */
+static volatile uint32* const Adc_PccAddresses[ADC_MAX_HW_UNITS] = {
+    PCC_ADC0_ADDR, PCC_ADC1_ADDR
 };
+
+
 
 /*=================================================================================================
 *                              MODULE STATE VARIABLES

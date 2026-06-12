@@ -34,12 +34,16 @@ pipeline {
             }
         }
 
-        stage('4. Native Unit Tests (Host)') {
-            steps {
-                echo 'Building and running unit tests...'
-                bat 'make test_host'
+       stage('4. Native Unit Tests (Host)') {
+         steps {
+             echo 'Building and running unit tests...'
+             bat 'make test_host'
             }
-            
+         post {
+             always {
+                 junit allowEmptyResults: true, testResults: 'test-results.xml'
+                }
+            }
         }
 
         stage('5. Archive Traceability Artifacts') {
