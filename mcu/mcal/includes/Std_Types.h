@@ -152,4 +152,6 @@ typedef struct
     uint8 sw_patch_version;
 }Std_VersionInfoType;
 
+#define NULL_PTR  ((void*)0)
+
 #endif /* STD_TYPES_H */
