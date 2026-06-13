@@ -41,11 +41,11 @@ pipeline {
             }
             post {
                 always {
-                    junit allowEmptyResults: true, testResults: 'test-results.xml'
+                    junit allowEmptyResults: true, testResults: 'test-results-*.xml'
                 }
             }
         }
-
+  
         stage('5. Archive Traceability Artifacts') {
             steps {
                 echo 'Archiving library...'
